@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LevelUpCoder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero__text">
+        <p class="eyebrow">CodeBoxx x eBay</p>
+        <h1>Level up your coding acumen</h1>
+        <p class="lede">Brilliant-style micro-challenges with forgiving feedback, celebratory animations, and CodeBoxx vibes. Pick your language and climb from Level 1 to Level 50.</p>
+        <div class="controls">
+          <label for="lang">Preferred language</label>
+          <select id="lang">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+          </select>
+          <button id="reset" class="ghost">Reset progress</button>
+        </div>
+      </div>
+      <div class="hero__progress">
+        <div class="badge">Prize milestones at 30 & 50</div>
+        <div class="level-chip">
+          <span class="label">Current level</span>
+          <span id="level-display" class="value">1</span>
+        </div>
+        <div class="meter">
+          <div class="meter__fill" id="meter"></div>
+        </div>
+        <p class="hint">Progress is saved in a cookie so you can continue where you left off.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="card" id="challenge-card">
+        <div class="card__header">
+          <div>
+            <p class="eyebrow">Challenge</p>
+            <h2 id="challenge-title"></h2>
+            <p id="challenge-task" class="task"></p>
+            <p id="challenge-example" class="example"></p>
+          </div>
+          <div class="level-pill">Level <span id="level-number">1</span>/50</div>
+        </div>
+        <div class="editor">
+          <div class="editor__header">
+            <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+            <span class="filename">solution.<span id="ext">py</span></span>
+          </div>
+          <textarea id="answer" spellcheck="false" placeholder="Type your solution here..."></textarea>
+        </div>
+        <div class="actions">
+          <button id="submit" class="primary">Submit &amp; check</button>
+          <button id="view-ref" class="ghost">Peek reference snippet</button>
+        </div>
+        <div id="feedback" class="feedback hidden"></div>
+      </section>
+
+      <section class="card" id="reference-card">
+        <div class="card__header">
+          <div>
+            <p class="eyebrow">Reference Solution (softly matched)</p>
+            <h3 id="ref-title"></h3>
+          </div>
+          <button id="copy-ref" class="ghost">Copy snippet</button>
+        </div>
+        <pre id="reference" class="reference"></pre>
+        <p class="tiny">We grade gently. If OpenAI API key is configured, we’ll ask ChatGPT to judge closeness. Otherwise, we use semantic similarity.</p>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="data.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
